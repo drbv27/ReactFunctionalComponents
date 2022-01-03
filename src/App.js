@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Component, useState } from "react";
 
 //reglas de  los hooks
 //los hooks no se llaman en ciclos ni condicionales....se deben llamar al ppio
@@ -7,7 +7,23 @@ import { useState } from "react";
 //Componentes de React
 //custom hooks
 // Cuando creemos un custom hook, este tiene que comenzar con use****
-const App = () => {
+
+/** Comparemos con clases**/
+class App extends Component {
+  state = { contador: 0 };
+  incrementar = () => {
+    this.setState({ contador: this.state.contador + 1 });
+  };
+  render() {
+    return (
+      <div>
+        contador:{this.state.contador}
+        <button onClick={this.incrementar}>Incrementar</button>
+      </div>
+    );
+  }
+}
+/* const App = () => {
   const [contador, setContador] = useState(0);
   return (
     <div>
@@ -15,6 +31,6 @@ const App = () => {
       <button onClick={() => setContador(contador + 1)}>Incrementar</button>
     </div>
   );
-};
+}; */
 
 export default App;
